@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "Database": "Server=DESKTOP-GNDJUOF;Database=GerenciadorCondominiosDB;Trusted_Connection=True;"
+  }
+}
