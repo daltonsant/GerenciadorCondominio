@@ -1,0 +1,83 @@
+﻿@model GerenciadorCondominio.MVC.ViewModels.UpdateViewModel
+@{
+    ViewData["Title"] = "Update Resident " + Model.Name;
+}
+
+<div class="updateresidentform">
+    <div class="collection with-header">
+       
+    </div>
+
+    <div class="collection with-header">
+        <form asp-action="Update" enctype="multipart/form-data">
+            <div class="collection-header">
+                <h5>Update Resident @Model.Name</h5>
+            </div>
+
+            <div class="collection-item">
+                <div class="red-text text-darken-4" asp-validation-summary="ModelOnly"></div>
+
+                <input type="hidden" asp-for="UserId" />
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input asp-for="Name" class="validate" id="Name" />
+                        <label asp-for="Name" id="Name"></label>
+                        <span asp-validation-for="Name" class="red-text text-darken-4"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input asp-for="Cpf" class="validate" id="Cpf" />
+                        <label asp-for="Cpf" id="Cpf"></label>
+                        <span asp-validation-for="Cpf" class="red-text text-darken-4"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="file-field input-field col s12">
+                        <div class="btn-small">
+                            <span>Select your photo</span>
+                            <input asp-for="Photo" type="file" class="validate" id="photo" />
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text" />
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input asp-for="Phone" class="validate" id="Phone" />
+                        <label asp-for="Phone" id="Phone"></label>
+                        <span asp-validation-for="Phone" class="red-text text-darken-4"></span>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input asp-for="Email" class="validate" type="email" id="Email" />
+                        <label asp-for="Email" id="Email"></label>
+                        <span asp-validation-for="Email" class="red-text text-darken-4"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="collection-item">
+                <div class="buttons">
+                    <button type="submit" class="btn-small blue darken-4">Update</button> &emsp;
+                    <a asp-controller="Users" asp-action="MyInformations">Back</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.js"></script>
+    <script src="~/js/initMasks.js"></script>
+}

@@ -1,0 +1,36 @@
+﻿@model List<GerenciadorCondominio.MVC.ViewModels.UserRoleViewModel>
+@{
+    ViewData["Title"] = "Update Roles of user " + @ViewBag.Name;
+}
+
+<form asp-action="ManageUser" method="post">
+    <div asp-validation-summary="All"></div>
+
+    <div class="collection with-header">
+        <div class="collection-header gray darken-1">
+            <h6 class="white-text">Update Roles of user  + @ViewBag.Name </h6>
+        </div>
+
+        <div class="collection-item">
+            @for(int i = 0; i < Model.Count(); i++)
+            {
+                <label>
+                    <input type="checkbox" asp-for="@Model[i].IsSelected" />
+                    <span asp-for="@Model[i].IsSelected">@Model[i].Name - @Model[i].Description</span>
+                    <input typeof="hidden" asp-for="@Model[i].RoleId" />
+                    <input typeof="hidden" asp-for="@Model[i].Name" />
+                </label>
+                <br />
+            }
+        </div>
+
+        <div class="collection-item">
+            <input type="submit" value="Update" class="btn-small blue darken-3" /> &emsp;
+            <a asp-controller="Users" asp-action="Index">Back</a>
+        </div>
+
+    </div>
+
+
+</form>
+

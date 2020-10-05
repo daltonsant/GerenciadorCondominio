@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -48,6 +49,19 @@ namespace GerenciadorCondominio.DAL.Repositories
             }
         }
 
+        public async Task<IEnumerable<string>> GetUserRoles(User user)
+        {
+            try
+            {
+                return await _userManager.GetRolesAsync(user);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
         public async Task IncludeUserInRole(User user, string role)
         {
             try
@@ -61,11 +75,37 @@ namespace GerenciadorCondominio.DAL.Repositories
             }
         }
 
+        public async Task<IdentityResult> IncludeUserInRole(User user, IEnumerable<string> roles)
+        {
+            try
+            {
+                return await _userManager.AddToRolesAsync(user, roles);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
         public async Task Logout()
         {
             try
             {
                 await _loginManager.SignOutAsync();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public async Task<IdentityResult> RemoveUserRoles(User user, IEnumerable<string> roles)
+        {
+            try
+            {
+                return await _userManager.RemoveFromRolesAsync(user, roles);
             }
             catch (Exception ex)
             {
@@ -92,6 +132,32 @@ namespace GerenciadorCondominio.DAL.Repositories
             try
             {
                 return _context.Users.Count();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public async Task<bool> VerifyIfUserIsInRole(User user, string role)
+        {
+            try
+            {
+                return await _userManager.IsInRoleAsync(user, role);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public async Task<User> FindUserByName(ClaimsPrincipal user)
+        {
+            try
+            {
+                return await _userManager.FindByNameAsync(user.Identity.Name);
             }
             catch (Exception ex)
             {

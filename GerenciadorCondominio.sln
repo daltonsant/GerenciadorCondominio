@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GerenciadorCondominio.DAL",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GerenciadorCondominio.BLL", "GerenciadorCondominio.BLL\GerenciadorCondominio.BLL.csproj", "{C1C3EED0-ACA9-4AB5-A27A-9470B872B52C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GerenciadorCondominio.MVC", "GerenciadorCondominio.MVC\GerenciadorCondominio.MVC.csproj", "{0A6F6A83-A3C8-479A-AB0E-631553D04FE4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GerenciadorCondominio.MVC", "GerenciadorCondominio.MVC\GerenciadorCondominio.MVC.csproj", "{0A6F6A83-A3C8-479A-AB0E-631553D04FE4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
